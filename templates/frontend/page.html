@@ -4,6 +4,13 @@
 	<title>{{ page.name }}</title>
 </head>
 <body>
+	<nav>
+		<ul>
+			{% for page in menu.all %}
+			<li><a href='{{ page.url }}'>{{ page.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</nav>
 	<p>This is the {{ page.name }} page.</p>
 </body>
 </html>

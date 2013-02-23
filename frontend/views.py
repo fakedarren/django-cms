@@ -3,5 +3,9 @@ from frontend.models import Page
 
 
 def page(request, url):
-    page = Page.objects.filter(url='/' + url)[0]
-    return render_to_response('frontend/page.html', {'page': page})
+    menu = Page.objects.order_by('order')
+    page = Page.objects.get(url='/' + url)
+    return render_to_response('frontend/page.html', {
+        'menu': menu,
+        'page': page
+    })
