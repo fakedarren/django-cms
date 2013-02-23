@@ -1,18 +1,26 @@
-<DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta charset="utf-8" />
 	<title>{{ page.name }}</title>
+	<link href="/static/css/main.css" rel="stylesheet" />
 </head>
 <body>
-	<nav>
-		<ul>
-			{% for page in menu.all %}
-			<li><a href='{{ page.url }}'>{{ page.name }}</a></li>
-			{% endfor %}
-		</ul>
-	</nav>
-	{% block content %}
-	<p>This is the {{ page.name }} article.</p>
-	{% endblock %}
+	<header>
+		<nav class="main-menu">
+			<ul>
+				{% for page in menu.all %}
+					{% if page.url = current_url %}
+						<li><span>{{ page.name }}</span></li>
+					{% else %}
+						<li><a href="{{ page.url }}">{{ page.name }}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</nav>
+	</header>
+	<main>
+		{% block content %}{% endblock %}
+	</main>
 </body>
 </html>
