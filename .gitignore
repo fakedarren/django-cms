@@ -2,4 +2,5 @@
 sqlite3.db
 *.pyc
 *.pyo
-admin
+admin/img
+admin/js

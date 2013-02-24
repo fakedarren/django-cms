@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'Django site admin' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'django-cms' %}</h1>
+{% endblock %}
+
+{% block nav-global %}
+	<ul>
+		{% for app in app_list %}
+        <li><a href="{{ app.app_url }}">{{ app.name }}</a></li>
+        {% endfor %}
+	</ul>
+{% endblock %}
