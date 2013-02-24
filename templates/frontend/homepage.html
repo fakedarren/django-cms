@@ -1,5 +1,9 @@
 {% extends 'frontend/base.html' %}
 
 {% block content %}
-	<p>This is the {{ page.name }} homepage.</p>
+	{% if module_main %}
+		{{ module_main.content|safe }}
+	{% else %}
+		<p>Homepage</p>
+	{% endif %}
 {% endblock %}

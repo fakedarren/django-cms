@@ -12,7 +12,9 @@ class Page(models.Model):
 
 
 class Module(models.Model):
-	page = models.ForeignKey(Page)
-	name = models.CharField(max_length=50)
-	content = models.TextField()
-	status = models.BooleanField()
+    page = models.ForeignKey(Page)
+    name = models.CharField(max_length=50)
+    content = models.TextField()
+    status = models.BooleanField()
+    def __unicode__(self):
+        return self.name
